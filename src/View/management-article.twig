@@ -1,0 +1,28 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-150">
+        <h1 class="text-center">Article management</h1>
+        {% if notificationArticleManagement == 0 %}
+            <div class="alert alert-warning text-center mt-5" role="alert">
+                No article to manage
+            </div>
+        {% endif %}
+        {% for article in articles %}
+            <div class="card text-center mt-5">
+                <div class="card-header headband-top text-white">
+                    {{ article.getTitle }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.getHead }}</h5>
+                    <p class="card-text">{{ article.getContent }}</p>
+                    <a href="article-delete/{{ article.getId }}" class="btn btn-danger">Delete</a>
+                    <a href="article-modify/{{ article.getId }}" class="btn btn-warning">modify</a>
+                </div>
+                <div class="card-footer text-white headband-bottom">
+                    Posted by {{ article.getAuthor }} at {{ article.getDate }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

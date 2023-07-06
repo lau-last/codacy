@@ -1,0 +1,71 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-150">
+        <h1 class="text-center">Article</h1>
+        <div class="card text-center mt-5">
+            <div class="card-header headband-top text-white">
+                {{ article.getTitle }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ article.getHead }}</h5>
+                <p class="card-text">{{ article.getContent }}</p>
+            </div>
+            <div class="card-footer text-white headband-bottom">
+                Posted by {{ article.getAuthor }} at {{ article.getDate }}
+            </div>
+        </div>
+        {% if userIsConnected %}
+            <div class="container">
+                <div class="row mt-5 mb-5 justify-content-md-center">
+                    <div class="col-6">
+                        <h2 class="text-center mb-3">Your comment</h2>
+                        <form action="/post-comment/{{ article.getId }}" method="post">
+                            <label for="comment" class="form-label">Your comment</label>
+                            <textarea name="comment" id="comment" class="form-control mb-3" required></textarea>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-warning mb-3">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if userIsConnected == false %}
+            <div class="container">
+                <div class="row mt-5 mb-5 justify-content-md-center">
+                    <div class="col-6">
+                        <h2 class="text-center mb-3">You must be logged in to leave a comment</h2>
+                        <div class="d-flex justify-content-center">
+                            <a href="/connection" class="btn btn-warning">Connection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="container">
+            <h2 class="text-center">Comment(s)</h2>
+        </div>
+
+        {% if comments == null %}
+            <div class="alert alert-warning text-center mt-5" role="alert">
+                No comment to see
+            </div>
+        {% endif %}
+
+        {% for comment in comments %}
+            <div class="card text-center mt-5 comment-container">
+                <div class="card-header headband-top text-white">
+                    {{ comment.getAuthor }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ comment.getContent }}</p>
+                </div>
+                <div class="card-footer text-white headband-bottom">
+                    {{ comment.getDate }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

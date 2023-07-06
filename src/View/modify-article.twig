@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<div class="container mt-150">
+    <div class="row mt-5 justify-content-md-center">
+        <div class="col-6">
+            <h2 class="text-center">Article modification</h2>
+            <form action="/do-article-modify/{{ article.getId }}" method="post">
+                <label for="title" class="form-label">Your title</label>
+                <input type="text" name="title" id="title" class="form-control mb-3" value="{{ article.getTitle }}" required>
+                <label for="head" class="form-label">Your head</label>
+                <input type="text" name="head" id="head" class="form-control mb-3" value="{{ article.getHead }}" required>
+                <label for="content" class="form-label">Your content</label>
+                <textarea name="content" id="content" class="form-control mb-3" required>{{ article.getContent }}</textarea>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-warning mb-3">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

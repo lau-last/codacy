@@ -1,0 +1,27 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-150">
+        <h1 class="text-center">Comment management</h1>
+        {% if notificationInvalidComment == 0 %}
+            <div class="alert alert-warning text-center mt-5" role="alert">
+                No comment to manage
+            </div>
+        {% endif %}
+        {% for comment in comments %}
+            <div class="card text-center mt-5 comment-container">
+                <div class="card-header headband-top text-white">
+                    Posted by {{ comment.getAuthor }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ comment.getContent }}</p>
+                    <a href="comment-delete/{{ comment.getId }}" class="btn btn-danger">Delete</a>
+                    <a href="comment-approved/{{ comment.getId }}" class="btn btn-warning">Approved</a>
+                </div>
+                <div class="card-footer text-white headband-bottom">
+                    {{ comment.getDate }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

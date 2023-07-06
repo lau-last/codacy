@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-150">
+        <div class="row mt-5 justify-content-md-center">
+            <div class="col-6">
+                <h1 class="text-center mb-5">Registration</h1>
+                {% if message != null %}
+                    <div class="alert alert-warning text-center mt-5" role="alert">{{ message }}</div>
+                {% endif %}
+                {% if errors != null %}
+                    {% for error in errors %}
+                        <div class="alert alert-warning text-center" role="alert">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                <form action="/do-registration" method="post">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" id="name" class="form-control mb-3" required>
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" name="email" id="email" class="form-control mb-3" required>
+                    <label for="password1" class="form-label">Password</label>
+                    <input type="password" name="password1" id="password1" class="form-control mb-3" required>
+                    <label for="password2" class="form-label">Verify password</label>
+                    <input type="password" name="password2" id="password2" class="form-control mb-3" required>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-warning mb-3">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

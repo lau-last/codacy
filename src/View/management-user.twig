@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-150">
+        <h1 class="text-center">User management</h1>
+        {% if notificationUserManagement == 0 %}
+            <div class="alert alert-warning text-center mt-5" role="alert">
+                No user to manage
+            </div>
+        {% endif %}
+        {% for user in users %}
+            <div class="card text-center mt-5 comment-container">
+                <div class="card-header headband-top text-white">
+                    {{ user.getName }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ user.getRole }}</p>
+                    <a href="user-delete/{{ user.getId }}" class="btn btn-danger">Delete</a>
+                    {% if user.getRole == 'user' %}
+                        <a href="user-admin/{{ user.getId }}" class="btn btn-warning">Set admin</a>
+                    {% endif %}
+                    {% if user.getRole == 'admin' %}
+                        <a href="user-user/{{ user.getId }}" class="btn btn-warning">Set user</a>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-white headband-bottom">
+                    Registered since {{ user.getDate }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

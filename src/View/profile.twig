@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container mt-150">
+        <h1 class="text-center">My profile</h1>
+        <div class="card text-center mt-5 comment-container">
+            <div class="card-header headband-top text-white">
+                {{ userSession.getName }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">Your are {{ userSession.getRole }}</p>
+                <p class="card-text">Your email is {{ userSession.getEmail }}</p>
+
+                {% if errors != null %}
+                    {% for error in errors %}
+                        <div class="alert alert-warning text-center" role="alert">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Change your password there
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <form action="/update-password/{{ userSession.getId }}" method="post">
+                                    <label for="password1" class="form-label">New password</label>
+                                    <input type="password" name="password1" id="password1" class="form-control mb-3"
+                                           required>
+                                    <label for="password2" class="form-label">Verify new password</label>
+                                    <input type="password" name="password2" id="password2" class="form-control mb-3"
+                                           required>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-warning mb-3">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-white headband-bottom">
+                Registered since {{ userSession.getDate }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
