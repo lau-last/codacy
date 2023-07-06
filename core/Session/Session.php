@@ -17,10 +17,10 @@ abstract class Session
     }
 
     /**
-     * @param $key
+     * @param string $key
      * @return string|null
      */
-    public static function get($key) : ?string
+    public static function get(string $key) : ?string
     {
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];

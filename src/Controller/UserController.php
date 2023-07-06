@@ -31,7 +31,9 @@ final class UserController extends Controller
             $this->render('management-user.twig', $data);
             return;
         }
+
         $this->redirect('/403');
+
     }
 
     /**
@@ -65,13 +67,13 @@ final class UserController extends Controller
     }
 
     /**
-     * @param $token
+     * @param stringv $token
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function setValid($token)
+    public function setValid(string $token)
     {
 
         $user = (new UserManager())->getUserByToken($token);

@@ -19,6 +19,8 @@ final class ArticleController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
+
+
     public function showAll()
     {
         $data = [];

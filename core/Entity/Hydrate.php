@@ -11,6 +11,7 @@ abstract class Hydrate
         }
     }
 
+
     /**
      * @param $data
      * @return void
@@ -18,7 +19,7 @@ abstract class Hydrate
     public function Hydrate($data)
     {
         foreach ($data as $key => $value) {
-            if (strstr($key, '_')){
+            if (strstr($key, '_') == true){
                 $key = explode('_', $key, 2);
                 $key = ($key[0] . ucfirst($key[1]));
             }

@@ -37,13 +37,14 @@ final class FormController extends Controller
     {
         $form = new FormConnection();
         $request = new Request();
-        if (!$form->registerSession($request->getPost())) {
+        if(!$form->registerSession($request->getPost())) {
 
             $data = [];
             $data['error'] = 'The login or password is incorrect';
             $this->render('connection.twig', $data);
             return;
         }
+
         $this->redirect('/');
     }
 
@@ -91,8 +92,7 @@ final class FormController extends Controller
         (new UserManager())->doPreRegistration($request->getPost());
 
         $messages = (new EmailManager())->doSendEmailValidation($request->getPost()) ?
-            'Message has been sent for validation' :
-            'Message could not be sent for validation retry please';
+            'Message has been sent for validation' : 'Message could not be sent for validation retry please';
 
         $data = [];
         $data['message'] = $messages;
@@ -107,7 +107,7 @@ final class FormController extends Controller
      */
     public function showFormCreationArticle()
     {
-        if (UserManager::userIsAdmin()) {
+        if (UserManager::userIsAdmin() == true) {
             $this->render('creation-article.twig');
             return;
         }
