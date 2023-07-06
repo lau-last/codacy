@@ -21,6 +21,7 @@ final class ArticleController extends Controller
      */
     public function showAll()
     {
+        $data = [];
         $data['articles'] = (new ArticleManager())->getArticles();
         $data['notificationArticleManagement'] = \App\Manager\Notification::notificationArticleManagement();
 
@@ -36,6 +37,7 @@ final class ArticleController extends Controller
      */
     public function show($id)
     {
+        $data = [];
         $data['article'] = (new ArticleManager())->getArticle($id);
         $data['comments'] = (new CommentManager())->getCommentFromArticle($id);
 
@@ -63,6 +65,7 @@ final class ArticleController extends Controller
     {
         if (UserManager::userIsAdmin()) {
 
+            $data = [];
             $data['articles'] = (new ArticleManager())->getArticles();
             $data['notificationArticleManagement'] = \App\Manager\Notification::notificationArticleManagement();
 

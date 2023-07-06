@@ -77,12 +77,16 @@ final class UserController extends Controller
         $user = (new UserManager())->getUserByToken($token);
 
         if (empty($user)) {
+
+            $data = [];
             $data['error'] = 'Unknown token';
             $this->render('connection.twig', $data);
             return;
         }
 
         if ($user->getValidation() === 'valid') {
+
+            $data = [];
             $data['error'] = 'Your account is already valid';
             $this->render('connection.twig', $data);
             return;
@@ -91,14 +95,18 @@ final class UserController extends Controller
         $exp = $user->getExpirationDate();
 
         if ($exp > strtotime('now')) {
+
             (new UserManager())->setUserValid($token);
+            $data = [];
             $data['error'] = 'Your account has been successfully validated';
             $this->render('connection.twig', $data);
             return;
         }
 
         if ($exp < strtotime('now')) {
+
             (new UserManager())->deleteUserByToken($token);
+            $data = [];
             $data['error'] = 'The link has expired. You have to recreate a registration';
             $this->render('connection.twig', $data);
         }
@@ -117,6 +125,7 @@ final class UserController extends Controller
 
         if (UserManager::userIsConnected()) {
 
+            $data = [];
             $data['userSession'] = $userSession;
             $this->render('profile.twig', $data);
             return;

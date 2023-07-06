@@ -34,6 +34,7 @@ final class CommentController extends Controller
     {
         if (UserManager::userIsAdmin()) {
 
+            $data = [];
             $data['comments'] = (new CommentManager())->getAllComments();
 
             $this->render('management-comment.twig', $data);
