@@ -14,6 +14,9 @@ use Core\Session\Session;
 
 final class CommentManager extends CommentEntity
 {
+    /**
+     * @var string
+     */
     private string $author;
 
 

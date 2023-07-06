@@ -6,22 +6,49 @@ use Core\Entity\Hydrate;
 
 abstract class UserEntity extends Hydrate
 {
+    /**
+     * @var int
+     */
     protected int $id;
 
+    /**
+     * @var string
+     */
     protected string $name;
 
+    /**
+     * @var string
+     */
     protected string $password;
 
+    /**
+     * @var string
+     */
     protected string $email;
 
+    /**
+     * @var string
+     */
     protected string $role;
 
+    /**
+     * @var string
+     */
     protected string $date;
 
+    /**
+     * @var string
+     */
     protected string $token;
 
+    /**
+     * @var string
+     */
     protected string $expirationDate;
 
+    /**
+     * @var string
+     */
     protected string $validation;
 
 

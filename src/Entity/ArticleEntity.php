@@ -6,15 +6,33 @@ use Core\Entity\Hydrate;
 
 abstract class ArticleEntity extends Hydrate
 {
+    /**
+     * @var int
+     */
     protected int $id;
 
+    /**
+     * @var string
+     */
     protected string $title;
 
+    /**
+     * @var string
+     */
     protected string $head;
 
+    /**
+     * @var string
+     */
     protected string $content;
 
+    /**
+     * @var string
+     */
     protected string $date;
+    /**
+     * @var int
+     */
     protected int $userId;
 
     /**

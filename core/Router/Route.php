@@ -7,13 +7,28 @@ use Core\Http\Request;
 class Route
 {
 
+    /**
+     * @var string
+     */
     private string $path;
+    /**
+     * @var string
+     */
     private string $controllerName;
 
+    /**
+     * @var string
+     */
     private string $action;
 
+    /**
+     * @var array
+     */
     private array $params = [];
 
+    /**
+     * @var array
+     */
     private array $method;
 
 

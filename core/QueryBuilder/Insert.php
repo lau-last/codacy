@@ -4,7 +4,13 @@ namespace Core\QueryBuilder;
 
 final class Insert
 {
+    /**
+     * @var string
+     */
     private string $table;
+    /**
+     * @var array
+     */
     private array $value;
 
     public function __construct(string $table, array $value)

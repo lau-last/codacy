@@ -4,13 +4,28 @@ namespace Core\QueryBuilder;
 
 final class Select
 {
+    /**
+     * @var string
+     */
     private string $table;
 
+    /**
+     * @var array
+     */
     private array $value;
 
+    /**
+     * @var array|null
+     */
     private ?array $join = [];
 
+    /**
+     * @var array|null
+     */
     private ?array $where = [];
+    /**
+     * @var string|null
+     */
     private ?string $orderBy = null;
 
 

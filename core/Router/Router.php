@@ -7,6 +7,9 @@ use Core\Http\Request;
 
 class Router
 {
+    /**
+     * @var array
+     */
     private array $routes;
 
     public function __construct(array $routes)

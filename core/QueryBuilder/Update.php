@@ -5,10 +5,19 @@ namespace Core\QueryBuilder;
 final class Update
 {
 
+    /**
+     * @var string
+     */
     private string $table;
 
+    /**
+     * @var string
+     */
     private string $set;
 
+    /**
+     * @var array
+     */
     private array $where;
 
     public function __construct(string $table)

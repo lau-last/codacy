@@ -6,16 +6,34 @@ use Core\Entity\Hydrate;
 
 abstract class CommentEntity extends Hydrate
 {
+    /**
+     * @var int
+     */
     protected int $id;
 
+    /**
+     * @var string
+     */
     protected string $content;
 
+    /**
+     * @var string
+     */
     protected string $date;
 
+    /**
+     * @var string
+     */
     protected string $validation;
 
+    /**
+     * @var int
+     */
     protected int $userId;
 
+    /**
+     * @var int
+     */
     protected int $articleId;
 
     /**

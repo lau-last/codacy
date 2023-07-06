@@ -4,7 +4,13 @@ namespace Core\QueryBuilder;
 
 final class Delete
 {
+    /**
+     * @var string
+     */
     private string $table;
+    /**
+     * @var array
+     */
     private array $where = [];
 
     public function __construct(string $table)
