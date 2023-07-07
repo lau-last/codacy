@@ -22,11 +22,13 @@ final class FormConnection
                 return false;
             }
 
-            if (password_verify($password, $userInfo->getPassword())) {
-                if (password_needs_rehash($userInfo->getPassword(), PASSWORD_BCRYPT)) {
+            if (password_verify($password, $userInfo->getPassword()) == true) {
+
+                if (password_needs_rehash($userInfo->getPassword(), PASSWORD_BCRYPT) == true) {
                     $password = password_hash($password, PASSWORD_BCRYPT);
                     $userInfo->setPassword($password);
                 }
+
                 SessionBlog::init($userInfo);
                 return true;
             }

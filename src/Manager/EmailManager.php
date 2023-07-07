@@ -34,6 +34,7 @@ final class EmailManager
         }
     }
 
+
     /**
      * @param $input
      * @return bool
@@ -65,4 +66,6 @@ final class EmailManager
             return false;
         }
     }
+
+
 }

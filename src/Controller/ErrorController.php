@@ -9,14 +9,18 @@ use Twig\Error\SyntaxError;
 
 final class ErrorController extends Controller
 {
+
     /**
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function show403()
+
+    public function show403(): void
     {
         $this->render('403.twig');
     }
+
+
 }

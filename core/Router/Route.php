@@ -7,28 +7,44 @@ use Core\Http\Request;
 class Route
 {
 
+
     /**
      * @var string
      */
+
+
     private string $path;
+
+
     /**
      * @var string
      */
+
+
     private string $controllerName;
 
+
     /**
      * @var string
      */
+
+
     private string $action;
 
-    /**
-     * @var array
-     */
-    private array $params = [];
 
     /**
      * @var array
      */
+
+
+    private array $params = [];
+
+
+    /**
+     * @var array
+     */
+
+
     private array $method;
 
 
@@ -45,43 +61,60 @@ class Route
      * @param Request $request
      * @return bool
      */
+
+
     public function matches(Request $request): bool
     {
         $matches = [];
+
         if (\preg_match($this->path, $request->getUri(), $matches)) {
+
             if (\count($matches) > 1) {
+
                 \array_shift($matches);
                 $this->params = $matches;
             }
+
             return true;
         }
+
         return false;
     }
+
 
     /**
      * @return void
      */
-    public function callAction()
+
+
+    public function callAction(): void
     {
         $controller = new $this->controllerName;
         $action = $this->action;
         $controller->$action($this->params);
     }
 
+
     /**
      * @return array
      */
+
+
     public function getMethod(): array
     {
         return $this->method;
     }
 
+
     /**
      * @return array
      */
+
+
     public function getParams(): array
     {
         return $this->params;
     }
+
 
 }

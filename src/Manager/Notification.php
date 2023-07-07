@@ -7,9 +7,13 @@ use Core\Session\Session;
 
 final class Notification
 {
+
+
     /**
      * @return string
      */
+
+
     public static function notificationInvalidComment(): string
     {
         return implode((new Manager())->fetch(
@@ -19,9 +23,12 @@ final class Notification
 
     }
 
+
     /**
      * @return string
      */
+
+
     public static function notificationValidComment(): string
     {
         return implode((new Manager())->fetch(
@@ -34,6 +41,8 @@ final class Notification
     /**
      * @return string
      */
+
+
     public static function notificationArticleManagement(): string
     {
         return implode(
@@ -42,6 +51,7 @@ final class Notification
             )
         );
     }
+
 
     /**
      * @return string
@@ -55,9 +65,12 @@ final class Notification
         );
     }
 
+
     /**
      * @return string
      */
+
+
     public static function notificationConnection(): string
     {
         if ((new UserManager())->userIsConnected()) {
@@ -65,5 +78,6 @@ final class Notification
         }
         return 'Offline';
     }
+
 
 }

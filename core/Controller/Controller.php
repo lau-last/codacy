@@ -12,14 +12,20 @@ use Twig\Loader\FilesystemLoader;
 abstract class Controller
 {
 
+
     /**
      * @var FilesystemLoader
      */
+
+
     private FilesystemLoader $loader;
+
 
     /**
      * @var Environment
      */
+
+
     protected Environment $twig;
 
 
@@ -29,6 +35,7 @@ abstract class Controller
         $this->twig = new Environment($this->loader, ['cache' => false]);
     }
 
+
     /**
      * @param string $template
      * @param array $data
@@ -37,7 +44,9 @@ abstract class Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    protected function render(string $template, array $data = [])
+
+
+    protected function render(string $template, array $data = []): void
     {
         $data['userName'] = SessionBlog::get('name');
         $data['userIsAdmin'] = \App\Manager\UserManager::userIsAdmin();
@@ -46,12 +55,17 @@ abstract class Controller
         echo $this->twig->render($template, $data);
     }
 
+
     /**
      * @param $uri
      * @return void
      */
-    public function redirect($uri)
+
+
+    public function redirect($uri): void
     {
         header("Location: $uri");
     }
+
+
 }
