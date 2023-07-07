@@ -13,9 +13,9 @@ final class SessionBlog extends Session
      * @param UserManager|null $userInfo
      * @return void
      */
-    public static function init(?UserManager $userInfo = null): void
+    public static function init(?UserManager $userInfo= null): void
     {
-        if ((!empty($userInfo))) {
+        if (empty($userInfo) === false) {
             self::set('id', $userInfo->getId());
             self::set('name', $userInfo->getName());
             self::set('email', $userInfo->getEmail());

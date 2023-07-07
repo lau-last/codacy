@@ -57,7 +57,7 @@ final class ArticleManager extends ArticleEntity
      */
     public function getExtract(): string
     {
-        return \substr($this->content, 0, 250) . '...';
+        return \substr($this->content, 0, 250).'...';
 
     }
 

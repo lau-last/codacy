@@ -41,7 +41,7 @@ final class UserManager extends UserEntity
      */
     public static function userIsConnected(): bool
     {
-        if (!empty(SessionBlog::get('name'))) {
+        if (empty(SessionBlog::get('name')) === false) {
             return true;
         }
 
@@ -55,7 +55,7 @@ final class UserManager extends UserEntity
      */
     public static function userIsAdmin(): bool
     {
-        if (self::userIsConnected() && SessionBlog::get('role') == 'admin') {
+        if (self::userIsConnected() === true && SessionBlog::get('role') == 'admin') {
             return true;
         }
 
@@ -174,7 +174,7 @@ final class UserManager extends UserEntity
                 ->where('token = :token'),
             ['token' => $token[0]]
         );
-        if (empty($user)) {
+        if (empty($user) === true) {
             return null;
         }
 

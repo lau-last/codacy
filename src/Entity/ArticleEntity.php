@@ -8,7 +8,7 @@ abstract class ArticleEntity extends Hydrate
 {
 
     /**
-     * @var int
+     * @var integer
      */
     protected int $id;
 
@@ -33,13 +33,13 @@ abstract class ArticleEntity extends Hydrate
     protected string $date;
 
     /**
-     * @var int
+     * @var integer
      */
     protected int $userId;
 
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId(): int
     {
@@ -49,7 +49,7 @@ abstract class ArticleEntity extends Hydrate
 
 
     /**
-     * @param int $id
+     * @param integer $id
      * @return $this
      */
     public function setId(int $id): self
@@ -149,7 +149,7 @@ abstract class ArticleEntity extends Hydrate
 
 
     /**
-     * @return int
+     * @return integer
      */
     public function getUserId(): int
     {
@@ -159,7 +159,7 @@ abstract class ArticleEntity extends Hydrate
 
 
     /**
-     * @param int $userId
+     * @param integer $userId
      * @return $this
      */
     public function setUserId(int $userId): self

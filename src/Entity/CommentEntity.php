@@ -38,7 +38,6 @@ abstract class CommentEntity extends Hydrate
     protected int $articleId;
 
 
-
     /**
      * @return int
      */

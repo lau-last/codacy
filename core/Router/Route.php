@@ -33,6 +33,12 @@ class Route
     private array $method;
 
 
+    /**
+     * @param string $path
+     * @param string $controllerName
+     * @param string $action
+     * @param array $method
+     */
     public function __construct(string $path, string $controllerName, string $action, array $method = [])
     {
         $this->path = $path;

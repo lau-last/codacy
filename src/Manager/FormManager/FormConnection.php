@@ -15,7 +15,7 @@ final class FormConnection
      */
     public function registerSession(array $input): bool
     {
-        if (isset($input['email']) && isset($input['password'])) {
+        if (isset($input['email']) === true && isset($input['password']) === true) {
             $email = trim($input['email']);
             $password = trim($input['password']);
             $userInfo = (new UserManager())->getUserInfo($email);
@@ -25,7 +25,7 @@ final class FormConnection
             }
 
             if (password_verify($password, $userInfo->getPassword())) {
-                if (password_needs_rehash($userInfo->getPassword(), PASSWORD_BCRYPT)) {
+                if (password_needs_rehash($userInfo->getPassword(), PASSWORD_BCRYPT) === true) {
                     $password = password_hash($password, PASSWORD_BCRYPT);
                     $userInfo->setPassword($password);
                 }

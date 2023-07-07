@@ -25,7 +25,7 @@ abstract class Controller
 
     public function __construct()
     {
-        $this->loader = new FilesystemLoader(ROOT . '/src/View');
+        $this->loader = new FilesystemLoader(ROOT.'/src/View');
         $this->twig = new Environment($this->loader, ['cache' => false]);
 
     }

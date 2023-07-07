@@ -67,8 +67,7 @@ final class ArticleController extends Controller
      */
     public function modifyArticle(): void
     {
-        if (UserManager::userIsAdmin()) {
-
+        if (UserManager::userIsAdmin() === true) {
             $data = [];
             $data['articles'] = (new ArticleManager())->getArticles();
             $data['notificationArticleManagement'] = \App\Manager\Notification::notificationArticleManagement();

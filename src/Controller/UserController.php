@@ -23,7 +23,7 @@ final class UserController extends Controller
      */
     public function showAllUser(): void
     {
-        if (UserManager::userIsAdmin()) {
+        if (UserManager::userIsAdmin() === true) {
             $data = [
                 'users' => (new UserManager())->getAllUsers(),
                 'notificationUserManagement' => \App\Manager\Notification::notificationUserManagement()
@@ -129,7 +129,7 @@ final class UserController extends Controller
         $sessionEmail = SessionBlog::get('email');
         $userSession = (new UserManager())->getUserInfo($sessionEmail);
 
-        if (UserManager::userIsConnected()) {
+        if (UserManager::userIsConnected() === true) {
             $data = [];
             $data['userSession'] = $userSession;
             $this->render('profile.twig', $data);
@@ -153,7 +153,7 @@ final class UserController extends Controller
         $sessionEmail = SessionBlog::get('email');
         $userSession = (new UserManager())->getUserInfo($sessionEmail);
 
-        if (!empty($errors)) {
+        if (empty($errors) === false) {
             $data = [
                 'errors' => $errors,
                 'userSession' => $userSession,

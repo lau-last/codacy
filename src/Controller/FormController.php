@@ -42,7 +42,7 @@ final class FormController extends Controller
         $form = new FormConnection();
         $request = new Request();
 
-        if (!$form->registerSession($request->getPost())) {
+        if ($form->registerSession($request->getPost()) === false) {
             $data = [];
             $data['error'] = 'The login or password is incorrect';
             $this->render('connection.twig', $data);
@@ -117,7 +117,7 @@ final class FormController extends Controller
      */
     public function showFormCreationArticle(): void
     {
-        if (UserManager::userIsAdmin()) {
+        if (UserManager::userIsAdmin() === true) {
             $this->render('creation-article.twig');
             return;
         }

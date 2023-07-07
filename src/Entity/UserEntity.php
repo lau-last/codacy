@@ -8,7 +8,7 @@ abstract class UserEntity extends Hydrate
 {
 
     /**
-     * @var int
+     * @var integer
      */
     protected int $id;
 
@@ -120,7 +120,7 @@ abstract class UserEntity extends Hydrate
 
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId(): int
     {
@@ -130,7 +130,7 @@ abstract class UserEntity extends Hydrate
 
 
     /**
-     * @param int $id
+     * @param integer $id
      * @return $this
      */
     public function setId(int $id): self

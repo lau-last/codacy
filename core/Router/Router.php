@@ -14,6 +14,9 @@ class Router
     private array $routes;
 
 
+    /**
+     * @param array $routes
+     */
     public function __construct(array $routes)
     {
         $this->routes = $routes;

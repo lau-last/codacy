@@ -49,16 +49,14 @@ final class CommentManager extends CommentEntity
      */
     public function getCommentFromArticle($id): array
     {
-        $dataComment = (new Manager())->fetchAll((
-        new Select('comment AS c',
-            [
-                'c.id, 
-                c.content, 
-                c.validation, 
-                c.date, 
-                u.name AS author'
-            ]
-        ))
+        $dataComment = (new Manager())->fetchAll((new Select('comment AS c',
+                [
+                    'c.id, 
+                    c.content, 
+                    c.validation, 
+                    c.date, 
+                    u.name AS author'
+                ]))
             ->join('user AS u ON c.user_id = u.id')
             ->where('article_id = :article_id', 'c.validation = "valid"')
             ->orderBy('c.date DESC'), ['article_id' => $id[0]]);
