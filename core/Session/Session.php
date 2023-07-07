@@ -24,7 +24,7 @@ abstract class Session
      */
     public static function get(string $key) : ?string
     {
-        if (isset($_SESSION[$key])) {
+        if (isset($_SESSION[$key]) === true) {
             return $_SESSION[$key];
         }
 

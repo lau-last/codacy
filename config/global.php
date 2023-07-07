@@ -1,7 +1,7 @@
 <?php
 define('ROOT', \dirname(__DIR__));
 const TEMPLATE = 'base';
-const VIEW_PATH = ROOT . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR;
+const VIEW_PATH = ROOT.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR;
 
 // To change !
 const MAIL_HOST = 'sandbox.smtp.mailtrap.io';

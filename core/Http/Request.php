@@ -16,6 +16,9 @@ final class Request
     private ?array $post;
 
 
+    /**
+     *
+     */
     public function __construct()
     {
         $this->server = $_SERVER;
