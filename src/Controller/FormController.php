@@ -16,29 +16,31 @@ use Twig\Error\SyntaxError;
 
 final class FormController extends Controller
 {
+
     /**
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showFormConnection()
+    public function showFormConnection(): void
     {
         $this->render('connection.twig');
     }
 
+
     /**
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function doConnection()
+    public function doConnection(): void
     {
         $form = new FormConnection();
         $request = new Request();
-        if(!$form->registerSession($request->getPost())) {
 
+        if(!$form->registerSession($request->getPost())) {
             $data = [];
             $data['error'] = 'The login or password is incorrect';
             $this->render('connection.twig', $data);
@@ -48,14 +50,16 @@ final class FormController extends Controller
         $this->redirect('/');
     }
 
+
     /**
      * @return void
      */
-    public function logout()
+    public function logout(): void
     {
         SessionBlog::destroy();
         $this->redirect('/');
     }
+
 
     /**
      * @return void
@@ -63,7 +67,7 @@ final class FormController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showFormRegistration()
+    public function showFormRegistration(): void
     {
         $this->render('registration.twig');
     }
@@ -82,7 +86,6 @@ final class FormController extends Controller
         $errors = $registration->isValid($request->getPost());
 
         if (!empty($errors)) {
-
             $data = [];
             $data['errors'] = $errors;
             $this->render('registration.twig', $data);
@@ -99,42 +102,43 @@ final class FormController extends Controller
         $this->render('registration.twig', $data);
     }
 
+
     /**
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showFormCreationArticle()
+    public function showFormCreationArticle(): void
     {
-        if (UserManager::userIsAdmin() == true) {
+        if (UserManager::userIsAdmin()) {
             $this->render('creation-article.twig');
             return;
         }
+
         $this->redirect('/403');
     }
 
+
     /**
-     * @param $id
+     * @param int $id
      * @return void
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
      */
-    public function showFormModifyArticle($id)
+    public function showFormModifyArticle(int $id): void
     {
         $data = [];
         $data['article'] = (new ArticleManager())->getArticle($id);
         $this->render('modify-article.twig', $data);
     }
 
+
     /**
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function sendEmail()
+    public function sendEmail(): void
     {
         $request = new Request();
         $messages = (new EmailManager())->doSendEmailContact($request->getPost()) ? 'Message has been sent' : 'Message could not be sent';
@@ -144,5 +148,6 @@ final class FormController extends Controller
 
         $this->render('home.twig', $data);
     }
+
 
 }

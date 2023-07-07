@@ -16,7 +16,6 @@ final class ErrorController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-
     public function show403(): void
     {
         $this->render('403.twig');

@@ -12,11 +12,12 @@ use Twig\Error\SyntaxError;
 
 final class CommentController extends Controller
 {
+
     /**
-     * @param $articleId
+     * @param array $articleId
      * @return void
      */
-    public function postComment($articleId)
+    public function postComment(array $articleId): void
     {
         $articleId = implode($articleId);
         $request = new Request();
@@ -24,42 +25,46 @@ final class CommentController extends Controller
         $this->redirect("/articles/$articleId");
     }
 
+
     /**
      * @return void
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showAll()
+    public function showAll(): void
     {
         if (UserManager::userIsAdmin()) {
-
             $data = [];
             $data['comments'] = (new CommentManager())->getAllComments();
-
             $this->render('management-comment.twig', $data);
             return;
         }
+
         $this->redirect('/403');
     }
 
+
     /**
-     * @param $id
+     * @param int $id
      * @return void
      */
-    public function setValidComment($id)
+    public function setValidComment(int $id): void
     {
         (new CommentManager())->updateCommentSetValid($id);
         $this->redirect('/comment-management');
     }
 
+
     /**
-     * @param $id
+     * @param int $id
      * @return void
      */
-    public function doDeleteComment($id)
+    public function doDeleteComment(int $id): void
     {
         (new CommentManager())->deleteComment($id);
         $this->redirect('/comment-management');
     }
+
+
 }
