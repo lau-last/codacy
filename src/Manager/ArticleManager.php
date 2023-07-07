@@ -26,6 +26,7 @@ final class ArticleManager extends ArticleEntity
     public function getAuthor(): string
     {
         return $this->author;
+
     }
 
 
@@ -37,6 +38,7 @@ final class ArticleManager extends ArticleEntity
     {
         $this->author = $author;
         return $this;
+
     }
 
 
@@ -46,6 +48,7 @@ final class ArticleManager extends ArticleEntity
     public function getUrl(): string
     {
         return '/articles/'.$this->id;
+
     }
 
 
@@ -55,6 +58,7 @@ final class ArticleManager extends ArticleEntity
     public function getExtract(): string
     {
         return \substr($this->content, 0, 250) . '...';
+
     }
 
 
@@ -75,6 +79,7 @@ final class ArticleManager extends ArticleEntity
         }
 
         return $articles;
+
     }
 
 
@@ -91,6 +96,7 @@ final class ArticleManager extends ArticleEntity
             ['id' => $id[0]]
         );
         return new ArticleManager($dataArticle);
+
     }
 
 
@@ -110,6 +116,7 @@ final class ArticleManager extends ArticleEntity
                 'content' => $input['content']
             ]
         );
+
     }
 
 
@@ -133,6 +140,7 @@ final class ArticleManager extends ArticleEntity
                 'id' => $id[0]
             ]
         );
+
     }
 
 
@@ -147,6 +155,7 @@ final class ArticleManager extends ArticleEntity
                 ->where('article.id = :id'),
             ['id' => $id[0]]
         );
+
     }
 
 

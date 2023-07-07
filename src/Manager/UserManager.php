@@ -14,6 +14,7 @@ use Exception;
 final class UserManager extends UserEntity
 {
 
+
     /**
      * @param array $input
      * @return void
@@ -31,6 +32,7 @@ final class UserManager extends UserEntity
                 'expiration_date' => strtotime('1 hour')
             ]
         );
+
     }
 
 
@@ -44,6 +46,7 @@ final class UserManager extends UserEntity
         }
 
         return false;
+
     }
 
 
@@ -57,6 +60,7 @@ final class UserManager extends UserEntity
         }
 
         return false;
+
     }
 
 
@@ -75,6 +79,7 @@ final class UserManager extends UserEntity
         }
 
         return new UserManager($dataUser);
+
     }
 
 
@@ -91,6 +96,7 @@ final class UserManager extends UserEntity
         }
 
         return $users;
+
     }
 
 
@@ -106,6 +112,7 @@ final class UserManager extends UserEntity
                 ->where('id = :id'),
             ['id' => $id[0]]
         );
+
     }
 
 
@@ -121,6 +128,7 @@ final class UserManager extends UserEntity
                 ->where('id = :id'),
             ['id' => $id[0]]
         );
+
     }
 
 
@@ -135,6 +143,7 @@ final class UserManager extends UserEntity
                 ->where('id = :id'),
             ['id' => $id[0]]
         );
+
     }
 
 
@@ -150,6 +159,7 @@ final class UserManager extends UserEntity
                 ->where('token = :token'),
             ['token' => $token[0]]
         );
+
     }
 
 
@@ -167,7 +177,9 @@ final class UserManager extends UserEntity
         if (empty($user)) {
             return null;
         }
+
         return new UserManager($user);
+
     }
 
 
@@ -182,6 +194,7 @@ final class UserManager extends UserEntity
                 ->where('token = :token'),
             ['token' => $token[0]]
         );
+
     }
 
 
@@ -198,8 +211,10 @@ final class UserManager extends UserEntity
                 ->where('id = :id'),
             [
                 'password' => password_hash($input['password1'], PASSWORD_BCRYPT),
-                'id' => $id[0]]
+                'id' => $id[0]
+            ]
         );
+
     }
 
 

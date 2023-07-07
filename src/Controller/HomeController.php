@@ -10,6 +10,7 @@ use Twig\Error\SyntaxError;
 final class HomeController extends Controller
 {
 
+
     /**
      * @return void
      * @throws LoaderError
@@ -19,6 +20,7 @@ final class HomeController extends Controller
     public function showHome(): void
     {
         $this->render('home.twig');
+
 
     }
 

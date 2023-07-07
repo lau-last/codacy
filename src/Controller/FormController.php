@@ -17,6 +17,7 @@ use Twig\Error\SyntaxError;
 final class FormController extends Controller
 {
 
+
     /**
      * @return void
      * @throws LoaderError
@@ -26,6 +27,7 @@ final class FormController extends Controller
     public function showFormConnection(): void
     {
         $this->render('connection.twig');
+
     }
 
 
@@ -48,6 +50,7 @@ final class FormController extends Controller
         }
 
         $this->redirect('/');
+
     }
 
 
@@ -58,6 +61,7 @@ final class FormController extends Controller
     {
         SessionBlog::destroy();
         $this->redirect('/');
+
     }
 
 
@@ -70,6 +74,7 @@ final class FormController extends Controller
     public function showFormRegistration(): void
     {
         $this->render('registration.twig');
+
     }
 
 
@@ -100,6 +105,7 @@ final class FormController extends Controller
         $data = [];
         $data['message'] = $messages;
         $this->render('registration.twig', $data);
+
     }
 
 
@@ -117,6 +123,7 @@ final class FormController extends Controller
         }
 
         $this->redirect('/403');
+
     }
 
 
@@ -129,6 +136,7 @@ final class FormController extends Controller
         $data = [];
         $data['article'] = (new ArticleManager())->getArticle($id);
         $this->render('modify-article.twig', $data);
+
     }
 
 

@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 final class EmailManager
 {
 
+
     /**
      * @param $input
      * @return bool

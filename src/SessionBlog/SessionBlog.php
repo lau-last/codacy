@@ -8,6 +8,7 @@ use Core\Session\Session;
 final class SessionBlog extends Session
 {
 
+
     /**
      * @param UserManager|null $userInfo
      * @return void

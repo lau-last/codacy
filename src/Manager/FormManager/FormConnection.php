@@ -8,6 +8,7 @@ use App\SessionBlog\SessionBlog;
 final class FormConnection
 {
 
+
     /**
      * @param array $input
      * @return bool
@@ -36,6 +37,7 @@ final class FormConnection
         }
 
         return false;
+
     }
 
 

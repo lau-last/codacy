@@ -14,6 +14,7 @@ use Twig\Error\SyntaxError;
 final class UserController extends Controller
 {
 
+
     /**
      * @return void
      * @throws LoaderError
@@ -44,6 +45,7 @@ final class UserController extends Controller
     {
         (new UserManager())->setUserAdmin($id);
         $this->redirect('/user-management');
+
     }
 
 
@@ -55,6 +57,7 @@ final class UserController extends Controller
     {
         (new UserManager())->setUserUser($id);
         $this->redirect('/user-management');
+
     }
 
 
@@ -66,6 +69,7 @@ final class UserController extends Controller
     {
         (new UserManager())->deleteUser($id);
         $this->redirect('/user-management');
+
     }
 
 
@@ -133,6 +137,7 @@ final class UserController extends Controller
         }
 
         $this->redirect('/403');
+
     }
 
 
@@ -164,6 +169,7 @@ final class UserController extends Controller
             'userSession' => $userSession,
         ];
         $this->render('profile.twig', $data);
+
     }
 
 

@@ -14,6 +14,7 @@ use Twig\Error\SyntaxError;
 final class ArticleController extends Controller
 {
 
+
     /**
      * @return void
      * @throws LoaderError
@@ -27,6 +28,7 @@ final class ArticleController extends Controller
         $data['notificationArticleManagement'] = \App\Manager\Notification::notificationArticleManagement();
 
         $this->render('show-all-articles.twig', $data);
+
     }
 
 
@@ -41,6 +43,7 @@ final class ArticleController extends Controller
         $data['comments'] = (new CommentManager())->getCommentFromArticle($id);
 
         $this->render('show-article.twig', $data);
+
     }
 
 
@@ -73,7 +76,9 @@ final class ArticleController extends Controller
             $this->render('management-article.twig', $data);
             return;
         }
+
         $this->redirect('/403');
+
     }
 
 
@@ -86,6 +91,7 @@ final class ArticleController extends Controller
         $request = new Request();
         (new ArticleManager())->updateArticle($request->getPost(), $id);
         $this->redirect('/article-management');
+
     }
 
 
@@ -97,6 +103,7 @@ final class ArticleController extends Controller
     {
         (new ArticleManager())->deleteArticle($id);
         $this->redirect('/article-management');
+
     }
 
 

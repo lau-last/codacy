@@ -8,6 +8,7 @@ use Core\Session\Session;
 final class Notification
 {
 
+
     /**
      * @return string
      */
@@ -17,6 +18,7 @@ final class Notification
             (new \Core\QueryBuilder\Select('comment', ['COUNT(validation)']))
                 ->where('validation = "invalid"')
         ));
+
     }
 
 
@@ -29,6 +31,7 @@ final class Notification
             (new \Core\QueryBuilder\Select('comment', ['COUNT(validation)']))
                 ->where('validation = "valid"')
         ));
+
     }
 
 
@@ -42,6 +45,7 @@ final class Notification
                 (new \Core\QueryBuilder\Select('article', ['COUNT(*)']))
             )
         );
+
     }
 
 
@@ -55,6 +59,7 @@ final class Notification
                 (new \Core\QueryBuilder\Select('user', ['COUNT(*)']))
             )
         );
+
     }
 
 
@@ -68,6 +73,7 @@ final class Notification
         }
 
         return 'Offline';
+
     }
 
 

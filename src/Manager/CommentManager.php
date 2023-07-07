@@ -27,6 +27,7 @@ final class CommentManager extends CommentEntity
     public function getAuthor(): string
     {
         return $this->author;
+
     }
 
 
@@ -38,6 +39,7 @@ final class CommentManager extends CommentEntity
     {
         $this->author = $author;
         return $this;
+
     }
 
 
@@ -55,7 +57,8 @@ final class CommentManager extends CommentEntity
                 c.validation, 
                 c.date, 
                 u.name AS author'
-            ]))
+            ]
+        ))
             ->join('user AS u ON c.user_id = u.id')
             ->where('article_id = :article_id', 'c.validation = "valid"')
             ->orderBy('c.date DESC'), ['article_id' => $id[0]]);
@@ -66,6 +69,7 @@ final class CommentManager extends CommentEntity
         }
 
         return $comments;
+
     }
 
 
@@ -85,6 +89,7 @@ final class CommentManager extends CommentEntity
                 'article_id' => $articleId
             ]
         );
+
     }
 
 
@@ -105,6 +110,7 @@ final class CommentManager extends CommentEntity
         }
 
         return $comment;
+
     }
 
 
@@ -120,6 +126,7 @@ final class CommentManager extends CommentEntity
                 ->where('c.id = :id'),
             ['id' => $id[0]]
         );
+
     }
 
 
@@ -134,6 +141,7 @@ final class CommentManager extends CommentEntity
                 ->where('comment.id = :id'),
             ['id' => $id[0]]
         );
+
     }
 
 

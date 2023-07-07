@@ -12,30 +12,25 @@ abstract class ArticleEntity extends Hydrate
      */
     protected int $id;
 
-
     /**
      * @var string
      */
     protected string $title;
-
 
     /**
      * @var string
      */
     protected string $head;
 
-
     /**
      * @var string
      */
     protected string $content;
 
-
     /**
      * @var string
      */
     protected string $date;
-
 
     /**
      * @var int
@@ -61,6 +56,7 @@ abstract class ArticleEntity extends Hydrate
     {
         $this->id = $id;
         return $this;
+
     }
 
 
@@ -70,6 +66,7 @@ abstract class ArticleEntity extends Hydrate
     public function getTitle(): string
     {
         return $this->title;
+
     }
 
 
@@ -81,6 +78,7 @@ abstract class ArticleEntity extends Hydrate
     {
         $this->title = $title;
         return $this;
+
     }
 
 
@@ -90,6 +88,7 @@ abstract class ArticleEntity extends Hydrate
     public function getHead(): string
     {
         return $this->head;
+
     }
 
 
@@ -101,6 +100,7 @@ abstract class ArticleEntity extends Hydrate
     {
         $this->head = $head;
         return $this;
+
     }
 
 
@@ -110,6 +110,7 @@ abstract class ArticleEntity extends Hydrate
     public function getContent(): string
     {
         return $this->content;
+
     }
 
 
@@ -121,6 +122,7 @@ abstract class ArticleEntity extends Hydrate
     {
         $this->content = $content;
         return $this;
+
     }
 
 
@@ -130,6 +132,7 @@ abstract class ArticleEntity extends Hydrate
     public function getDate(): string
     {
         return $this->date;
+
     }
 
 
@@ -141,6 +144,7 @@ abstract class ArticleEntity extends Hydrate
     {
         $this->date = $date;
         return $this;
+
     }
 
 
@@ -150,6 +154,7 @@ abstract class ArticleEntity extends Hydrate
     public function getUserId(): int
     {
         return $this->userId;
+
     }
 
 
@@ -161,6 +166,7 @@ abstract class ArticleEntity extends Hydrate
     {
         $this->userId = $userId;
         return $this;
+
     }
 
 

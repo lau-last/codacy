@@ -12,48 +12,40 @@ abstract class UserEntity extends Hydrate
      */
     protected int $id;
 
-
     /**
      * @var string
      */
     protected string $name;
-
 
     /**
      * @var string
      */
     protected string $password;
 
-
     /**
      * @var string
      */
     protected string $email;
-
 
     /**
      * @var string
      */
     protected string $role;
 
-
     /**
      * @var string
      */
     protected string $date;
-
 
     /**
      * @var string
      */
     protected string $token;
 
-
     /**
      * @var string
      */
     protected string $expirationDate;
-
 
     /**
      * @var string
@@ -67,6 +59,7 @@ abstract class UserEntity extends Hydrate
     public function getExpirationDate(): string
     {
         return $this->expirationDate;
+
     }
 
 
@@ -78,6 +71,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->expirationDate = $expirationDate;
         return $this;
+
     }
 
 
@@ -87,6 +81,7 @@ abstract class UserEntity extends Hydrate
     public function getToken(): string
     {
         return $this->token;
+
     }
 
 
@@ -98,6 +93,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->token = $token;
         return $this;
+
     }
 
 
@@ -107,6 +103,7 @@ abstract class UserEntity extends Hydrate
     public function getDate(): string
     {
         return $this->date;
+
     }
 
 
@@ -118,6 +115,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->date = $date;
         return $this;
+
     }
 
 
@@ -127,6 +125,7 @@ abstract class UserEntity extends Hydrate
     public function getId(): int
     {
         return $this->id;
+
     }
 
 
@@ -138,6 +137,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->id = $id;
         return $this;
+
     }
 
 
@@ -147,6 +147,7 @@ abstract class UserEntity extends Hydrate
     public function getName(): string
     {
         return $this->name;
+
     }
 
 
@@ -158,6 +159,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->name = $name;
         return $this;
+
     }
 
 
@@ -167,6 +169,7 @@ abstract class UserEntity extends Hydrate
     public function getPassword(): string
     {
         return $this->password;
+
     }
 
 
@@ -178,6 +181,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->password = $password;
         return $this;
+
     }
 
 
@@ -187,6 +191,7 @@ abstract class UserEntity extends Hydrate
     public function getEmail(): string
     {
         return $this->email;
+
     }
 
 
@@ -198,6 +203,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->email = $email;
         return $this;
+
     }
 
 
@@ -207,6 +213,7 @@ abstract class UserEntity extends Hydrate
     public function getRole(): string
     {
         return $this->role;
+
     }
 
 
@@ -218,6 +225,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->role = $role;
         return $this;
+
     }
 
 
@@ -227,6 +235,7 @@ abstract class UserEntity extends Hydrate
     public function getValidation(): string
     {
         return $this->validation;
+
     }
 
 
@@ -238,6 +247,7 @@ abstract class UserEntity extends Hydrate
     {
         $this->validation = $validation;
         return $this;
+
     }
 
 

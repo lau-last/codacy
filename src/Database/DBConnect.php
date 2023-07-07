@@ -23,6 +23,7 @@ final class DBConnect
         }
 
         return self::$pdo;
+
     }
 
 

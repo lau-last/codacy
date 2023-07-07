@@ -5,6 +5,7 @@ namespace App\Manager\FormManager;
 final class FormRegistration
 {
 
+
     /**
      * @param array $input
      * @return bool
@@ -12,6 +13,7 @@ final class FormRegistration
     private function checkName(array $input): bool
     {
         return (isset($input['name']) && strlen($input['name']) > 2);
+
     }
 
 
@@ -22,6 +24,7 @@ final class FormRegistration
     public function checkPassword(array $input): bool
     {
         return (isset($input['password1']) && isset($input['password2']) && $input['password1'] === $input['password2']);
+
     }
 
 
@@ -33,6 +36,7 @@ final class FormRegistration
     {
         $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
         return preg_match($regex, $input['password1']);
+
     }
 
 
@@ -43,6 +47,7 @@ final class FormRegistration
     private function checkEmail(array $input): bool
     {
         return (isset($input['email']) && filter_var($input['email'], FILTER_VALIDATE_EMAIL));
+
     }
 
 
@@ -71,6 +76,7 @@ final class FormRegistration
         }
 
         return $errors;
+
     }
 
 

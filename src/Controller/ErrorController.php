@@ -10,6 +10,7 @@ use Twig\Error\SyntaxError;
 final class ErrorController extends Controller
 {
 
+
     /**
      * @return void
      * @throws LoaderError
@@ -19,6 +20,7 @@ final class ErrorController extends Controller
     public function show403(): void
     {
         $this->render('403.twig');
+
     }
 
 

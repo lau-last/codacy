@@ -12,30 +12,25 @@ abstract class CommentEntity extends Hydrate
      */
     protected int $id;
 
-
     /**
      * @var string
      */
     protected string $content;
-
 
     /**
      * @var string
      */
     protected string $date;
 
-
     /**
      * @var string
      */
     protected string $validation;
 
-
     /**
      * @var int
      */
     protected int $userId;
-
 
     /**
      * @var int
@@ -43,14 +38,14 @@ abstract class CommentEntity extends Hydrate
     protected int $articleId;
 
 
+
     /**
      * @return int
      */
-
-
     public function getId(): int
     {
         return $this->id;
+
     }
 
 
@@ -62,6 +57,7 @@ abstract class CommentEntity extends Hydrate
     {
         $this->id = $id;
         return $this;
+
     }
 
 
@@ -71,6 +67,7 @@ abstract class CommentEntity extends Hydrate
     public function getContent(): string
     {
         return $this->content;
+
     }
 
 
@@ -82,6 +79,7 @@ abstract class CommentEntity extends Hydrate
     {
         $this->content = $content;
         return $this;
+
     }
 
 
@@ -91,6 +89,7 @@ abstract class CommentEntity extends Hydrate
     public function getDate(): string
     {
         return $this->date;
+
     }
 
 
@@ -102,6 +101,7 @@ abstract class CommentEntity extends Hydrate
     {
         $this->date = $date;
         return $this;
+
     }
 
 
@@ -111,6 +111,7 @@ abstract class CommentEntity extends Hydrate
     public function getValidation(): string
     {
         return $this->validation;
+
     }
 
 
@@ -122,6 +123,7 @@ abstract class CommentEntity extends Hydrate
     {
         $this->validation = $validation;
         return $this;
+
     }
 
 
@@ -131,6 +133,7 @@ abstract class CommentEntity extends Hydrate
     public function getUserId(): int
     {
         return $this->userId;
+
     }
 
 
@@ -142,6 +145,7 @@ abstract class CommentEntity extends Hydrate
     {
         $this->userId = $userId;
         return $this;
+
     }
 
 
@@ -151,6 +155,7 @@ abstract class CommentEntity extends Hydrate
     public function getArticleId(): int
     {
         return $this->articleId;
+
     }
 
 
@@ -162,6 +167,7 @@ abstract class CommentEntity extends Hydrate
     {
         $this->articleId = $articleId;
         return $this;
+
     }
 
 
