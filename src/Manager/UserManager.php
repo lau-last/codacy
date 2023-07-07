@@ -24,12 +24,12 @@ final class UserManager extends UserEntity
         (new Manager())->queryExecute(
             new Insert('user', ['name', 'password', 'email', 'token', 'expiration_date']),
             [
-            'name' => $input['name'],
-            'password' => password_hash($input['password1'], PASSWORD_BCRYPT),
-            'email' => $input['email'],
-            'token' => bin2hex(random_bytes(32)),
-            'expiration_date' => strtotime('1 hour')
-        ]
+                'name' => $input['name'],
+                'password' => password_hash($input['password1'], PASSWORD_BCRYPT),
+                'email' => $input['email'],
+                'token' => bin2hex(random_bytes(32)),
+                'expiration_date' => strtotime('1 hour')
+            ]
         );
     }
 
@@ -70,7 +70,7 @@ final class UserManager extends UserEntity
         new Select('user', ['*']))
             ->where('email = :email'), ['email' => $info]);
 
-        if (empty($dataUser)) {
+        if (empty($dataUser) === true) {
             return null;
         }
 
@@ -161,7 +161,7 @@ final class UserManager extends UserEntity
     {
         $user = (new Manager())->fetch(
             (new Select('user', ['*']))
-                 ->where('token = :token'),
+                ->where('token = :token'),
             ['token' => $token[0]]
         );
         if (empty($user)) {

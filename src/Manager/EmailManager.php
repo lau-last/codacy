@@ -32,6 +32,7 @@ final class EmailManager
         } catch (Exception $e) {
             return false;
         }
+
     }
 
 
@@ -65,6 +66,7 @@ final class EmailManager
         } catch (Exception $e) {
             return false;
         }
+
     }
 
 

@@ -17,6 +17,7 @@ class Router
     public function __construct(array $routes)
     {
         $this->routes = $routes;
+
     }
 
 
@@ -27,10 +28,13 @@ class Router
     public function run(Request $request): void
     {
         foreach ($this->routes as $route) {
+
             if ($route->matches($request)) {
                 $route->callAction();
             }
+
         }
+
     }
 
 

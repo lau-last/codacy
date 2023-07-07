@@ -49,6 +49,7 @@ abstract class ArticleEntity extends Hydrate
     public function getId(): int
     {
         return $this->id;
+
     }
 
 

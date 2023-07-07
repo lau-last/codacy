@@ -10,7 +10,6 @@ final class Request
      */
     private array $server;
 
-
     /**
      * @var array|null
      */
@@ -21,6 +20,7 @@ final class Request
     {
         $this->server = $_SERVER;
         $this->post = $_POST;
+
     }
 
 
@@ -30,6 +30,7 @@ final class Request
     public function getUri(): string
     {
         return $this->server['REQUEST_URI'];
+
     }
 
 
@@ -39,6 +40,7 @@ final class Request
     public function getPost(): ?array
     {
         return $this->post;
+
     }
 
 

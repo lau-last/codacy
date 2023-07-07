@@ -12,24 +12,20 @@ class Route
      */
     private string $path;
 
-
     /**
      * @var string
      */
     private string $controllerName;
-
 
     /**
      * @var string
      */
     private string $action;
 
-
     /**
      * @var array
      */
     private array $params = [];
-
 
     /**
      * @var array
@@ -43,6 +39,7 @@ class Route
         $this->controllerName = $controllerName;
         $this->action = $action;
         $this->method = $method;
+
     }
 
 
@@ -66,6 +63,7 @@ class Route
         }
 
         return false;
+
     }
 
 
@@ -77,6 +75,7 @@ class Route
         $controller = new $this->controllerName;
         $action = $this->action;
         $controller->$action($this->params);
+
     }
 
 
@@ -86,6 +85,7 @@ class Route
     public function getMethod(): array
     {
         return $this->method;
+
     }
 
 
@@ -95,6 +95,7 @@ class Route
     public function getParams(): array
     {
         return $this->params;
+
     }
 
 

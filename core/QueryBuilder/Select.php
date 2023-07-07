@@ -10,24 +10,20 @@ final class Select
      */
     private string $table;
 
-
     /**
      * @var array
      */
     private array $value;
-
 
     /**
      * @var array|null
      */
     private ?array $join = [];
 
-
     /**
      * @var array|null
      */
     private ?array $where = [];
-
 
     /**
      * @var string|null
@@ -39,6 +35,7 @@ final class Select
     {
         $this->table = $table;
         $this->value = $value;
+
     }
 
 
@@ -51,6 +48,7 @@ final class Select
             . (!empty($this->join) ? ' INNER JOIN ' . \implode($this->join) : '')
             . ($this->where !== [] ? ' WHERE ' . \implode(' AND ', $this->where) : '')
             . ($this->orderBy !== null ? ' ORDER BY ' . $this->orderBy : '');
+
     }
 
 
@@ -65,6 +63,7 @@ final class Select
         }
 
         return $this;
+
     }
 
 
@@ -79,6 +78,7 @@ final class Select
         }
 
         return $this;
+
     }
 
 
@@ -90,6 +90,7 @@ final class Select
     {
         $this->orderBy = $orderBy;
         return $this;
+
     }
 
 

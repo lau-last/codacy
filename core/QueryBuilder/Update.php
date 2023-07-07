@@ -10,12 +10,10 @@ final class Update
      */
     private string $table;
 
-
     /**
      * @var string
      */
     private string $set;
-
 
     /**
      * @var array
@@ -26,6 +24,7 @@ final class Update
     public function __construct(string $table)
     {
         $this->table = $table;
+
     }
 
 
@@ -35,6 +34,7 @@ final class Update
     public function __toString(): string
     {
         return 'UPDATE ' . $this->table . ' SET ' . $this->set . ($this->where !== [] ? ' WHERE ' . \implode(' AND ', $this->where) : '');
+
     }
 
 
@@ -46,6 +46,7 @@ final class Update
     {
         $this->set = $set;
         return $this;
+
     }
 
 
@@ -60,6 +61,7 @@ final class Update
         }
 
         return $this;
+
     }
 
 

@@ -5,6 +5,7 @@ namespace Core\Session;
 abstract class Session
 {
 
+
     /**
      * @return void
      */
@@ -13,6 +14,7 @@ abstract class Session
         if (session_status() !== PHP_SESSION_ACTIVE) {
             \session_start();
         }
+
     }
 
 
@@ -27,6 +29,7 @@ abstract class Session
         }
 
         return null;
+
     }
 
 
@@ -38,6 +41,7 @@ abstract class Session
     public static function set($key, $value): void
     {
         $_SESSION[$key] = $value;
+
     }
 
 
@@ -48,6 +52,7 @@ abstract class Session
     public static function delete($key): void
     {
         unset($_SESSION[$key]);
+
     }
 
 
@@ -59,6 +64,7 @@ abstract class Session
         if (session_status() === PHP_SESSION_ACTIVE) {
             \session_destroy();
         }
+
     }
 
 

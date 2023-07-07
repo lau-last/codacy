@@ -19,6 +19,7 @@ final class HomeController extends Controller
     public function showHome(): void
     {
         $this->render('home.twig');
+
     }
 
 

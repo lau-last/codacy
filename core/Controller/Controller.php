@@ -17,7 +17,6 @@ abstract class Controller
      */
     private FilesystemLoader $loader;
 
-
     /**
      * @var Environment
      */
@@ -28,6 +27,7 @@ abstract class Controller
     {
         $this->loader = new FilesystemLoader(ROOT . '/src/View');
         $this->twig = new Environment($this->loader, ['cache' => false]);
+
     }
 
 
@@ -46,6 +46,7 @@ abstract class Controller
         $data['notificationInvalidComment'] = \App\Manager\Notification::notificationInvalidComment();
         $data['userIsConnected'] = \App\Manager\UserManager::userIsConnected();
         echo $this->twig->render($template, $data);
+
     }
 
 
@@ -56,6 +57,7 @@ abstract class Controller
     public function redirect($uri): void
     {
         header("Location: $uri");
+
     }
 
 

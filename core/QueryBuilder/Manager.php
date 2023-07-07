@@ -9,6 +9,7 @@ use PDOStatement;
 final class Manager
 {
 
+
     /**
      * @param string $query
      * @param array $param
@@ -25,6 +26,7 @@ final class Manager
 
         $stmt->execute();
         return $stmt;
+
     }
 
 
@@ -37,6 +39,7 @@ final class Manager
     {
         $stmt = $this->queryExecute($query, $param);
         return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
+
     }
 
 
@@ -49,6 +52,7 @@ final class Manager
     {
         $stmt = $this->queryExecute($query, $param);
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+
     }
 
 

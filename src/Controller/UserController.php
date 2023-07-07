@@ -32,6 +32,7 @@ final class UserController extends Controller
         }
 
         $this->redirect('/403');
+
     }
 
 
@@ -79,7 +80,7 @@ final class UserController extends Controller
     {
         $user = (new UserManager())->getUserByToken($token);
 
-        if (empty($user)) {
+        if (empty($user) === true) {
             $data = [];
             $data['error'] = 'Unknown token';
             $this->render('connection.twig', $data);

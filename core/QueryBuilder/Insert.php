@@ -10,7 +10,6 @@ final class Insert
      */
     private string $table;
 
-
     /**
      * @var array
      */
@@ -21,6 +20,7 @@ final class Insert
     {
         $this->table = $table;
         $this->value = $value;
+
     }
 
 
@@ -30,6 +30,7 @@ final class Insert
     public function __toString(): string
     {
         return 'INSERT INTO ' . $this->table . ' (' . \implode(', ', $this->value) . ') VALUES (:' . \implode(', :', $this->value) . ')';
+
     }
 
 

@@ -45,7 +45,7 @@ final class ArticleManager extends ArticleEntity
      */
     public function getUrl(): string
     {
-        return '/articles/' . $this->id;
+        return '/articles/'.$this->id;
     }
 
 

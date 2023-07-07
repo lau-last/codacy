@@ -10,7 +10,6 @@ final class Delete
      */
     private string $table;
 
-
     /**
      * @var array
      */
@@ -20,6 +19,7 @@ final class Delete
     public function __construct(string $table)
     {
         $this->table = $table;
+
     }
 
 
@@ -29,6 +29,7 @@ final class Delete
     public function __toString(): string
     {
         return 'DELETE FROM ' . $this->table . ($this->where !== [] ? ' WHERE ' . \implode(' AND ', $this->where) : '');
+
     }
 
 
@@ -41,7 +42,9 @@ final class Delete
         foreach ($where as $arg) {
             $this->where[] = $arg;
         }
+
         return $this;
+
     }
 
 

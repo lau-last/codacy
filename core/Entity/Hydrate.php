@@ -5,6 +5,7 @@ namespace Core\Entity;
 abstract class Hydrate
 {
 
+
     public function __construct(?array $data=[])
     {
         if (!empty($data)) {
@@ -34,6 +35,7 @@ abstract class Hydrate
             }
 
         }
+
     }
 
 
