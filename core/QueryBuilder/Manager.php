@@ -9,18 +9,14 @@ use PDOStatement;
 final class Manager
 {
 
-
     /**
      * @param string $query
      * @param array $param
      * @return PDOStatement
      */
-
-
     public function queryExecute(string $query, array $param = []): PDOStatement
     {
         $stmt = DBConnect::getPDO()->prepare($query);
-
         if ($param !== []) {
             foreach ($param as $key => $value) {
                 $stmt->bindValue($key, $value);
@@ -37,8 +33,6 @@ final class Manager
      * @param array $param
      * @return array
      */
-
-
     public function fetch(string $query, array $param = []): array
     {
         $stmt = $this->queryExecute($query, $param);
@@ -51,8 +45,6 @@ final class Manager
      * @param array $param
      * @return array
      */
-
-
     public function fetchAll(string $query, array $param = []): array
     {
         $stmt = $this->queryExecute($query, $param);

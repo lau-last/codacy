@@ -5,20 +5,15 @@ namespace Core\QueryBuilder;
 final class Delete
 {
 
-
     /**
      * @var string
      */
-
-
     private string $table;
 
 
     /**
      * @var array
      */
-
-
     private array $where = [];
 
 
@@ -31,8 +26,6 @@ final class Delete
     /**
      * @return string
      */
-
-
     public function __toString(): string
     {
         return 'DELETE FROM ' . $this->table . ($this->where !== [] ? ' WHERE ' . \implode(' AND ', $this->where) : '');
@@ -43,8 +36,6 @@ final class Delete
      * @param string ...$where
      * @return $this
      */
-
-
     public function where(string ...$where): self
     {
         foreach ($where as $arg) {

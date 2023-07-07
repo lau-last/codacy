@@ -7,44 +7,33 @@ use Core\Http\Request;
 class Route
 {
 
-
     /**
      * @var string
      */
-
-
     private string $path;
 
 
     /**
      * @var string
      */
-
-
     private string $controllerName;
 
 
     /**
      * @var string
      */
-
-
     private string $action;
 
 
     /**
      * @var array
      */
-
-
     private array $params = [];
 
 
     /**
      * @var array
      */
-
-
     private array $method;
 
 
@@ -61,8 +50,6 @@ class Route
      * @param Request $request
      * @return bool
      */
-
-
     public function matches(Request $request): bool
     {
         $matches = [];
@@ -85,8 +72,6 @@ class Route
     /**
      * @return void
      */
-
-
     public function callAction(): void
     {
         $controller = new $this->controllerName;
@@ -98,8 +83,6 @@ class Route
     /**
      * @return array
      */
-
-
     public function getMethod(): array
     {
         return $this->method;
@@ -109,8 +92,6 @@ class Route
     /**
      * @return array
      */
-
-
     public function getParams(): array
     {
         return $this->params;

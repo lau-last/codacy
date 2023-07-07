@@ -5,44 +5,33 @@ namespace Core\QueryBuilder;
 final class Select
 {
 
-
     /**
      * @var string
      */
-
-
     private string $table;
 
 
     /**
      * @var array
      */
-
-
     private array $value;
 
 
     /**
      * @var array|null
      */
-
-
     private ?array $join = [];
 
 
     /**
      * @var array|null
      */
-
-
     private ?array $where = [];
 
 
     /**
      * @var string|null
      */
-
-
     private ?string $orderBy = null;
 
 
@@ -56,8 +45,6 @@ final class Select
     /**
      * @return string
      */
-
-
     public function __toString(): string
     {
         return 'SELECT ' . \implode(', ', $this->value) . ' FROM ' . $this->table
@@ -71,8 +58,6 @@ final class Select
      * @param string ...$join
      * @return $this
      */
-
-
     public function join(string ...$join): self
     {
         foreach ($join as $arg) {
@@ -87,8 +72,6 @@ final class Select
      * @param string ...$where
      * @return $this
      */
-
-
     public function where(string ...$where): self
     {
         foreach ($where as $arg) {
@@ -103,8 +86,6 @@ final class Select
      * @param string $orderBy
      * @return $this
      */
-
-
     public function orderBy(string $orderBy): self
     {
         $this->orderBy = $orderBy;

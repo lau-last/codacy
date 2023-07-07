@@ -8,12 +8,9 @@ use Core\Http\Request;
 class Router
 {
 
-
     /**
      * @var array
      */
-
-
     private array $routes;
 
 
@@ -27,18 +24,13 @@ class Router
      * @param Request $request
      * @return void
      */
-
-
     public function run(Request $request): void
     {
         foreach ($this->routes as $route) {
-
             if ($route->matches($request)) {
                 $route->callAction();
             }
-
         }
-
     }
 
 

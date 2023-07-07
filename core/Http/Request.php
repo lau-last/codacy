@@ -5,20 +5,15 @@ namespace Core\Http;
 final class Request
 {
 
-
     /**
      * @var array
      */
-
-
     private array $server;
 
 
     /**
      * @var array|null
      */
-
-
     private ?array $post;
 
 
@@ -32,8 +27,6 @@ final class Request
     /**
      * @return string
      */
-
-
     public function getUri(): string
     {
         return $this->server['REQUEST_URI'];
@@ -43,8 +36,6 @@ final class Request
     /**
      * @return array|null
      */
-
-
     public function getPost(): ?array
     {
         return $this->post;
