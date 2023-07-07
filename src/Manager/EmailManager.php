@@ -7,13 +7,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 final class EmailManager
 {
+
     /**
      * @param $input
      * @return bool
      */
     public function doSendEmailContact($input): bool
     {
-
         try {
             $mail = new PHPMailer(true);
             $mail->isSMTP();

@@ -78,6 +78,7 @@ final class UserController extends Controller
     public function setValid(string $token): void
     {
         $user = (new UserManager())->getUserByToken($token);
+
         if (empty($user)) {
             $data = [];
             $data['error'] = 'Unknown token';
@@ -93,6 +94,7 @@ final class UserController extends Controller
         }
 
         $exp = $user->getExpirationDate();
+
         if ($exp > strtotime('now')) {
             (new UserManager())->setUserValid($token);
             $data = [];
@@ -121,6 +123,7 @@ final class UserController extends Controller
     {
         $sessionEmail = SessionBlog::get('email');
         $userSession = (new UserManager())->getUserInfo($sessionEmail);
+
         if (UserManager::userIsConnected()) {
             $data = [];
             $data['userSession'] = $userSession;
@@ -143,6 +146,7 @@ final class UserController extends Controller
         $errors = $password->isValid($request->getPost());
         $sessionEmail = SessionBlog::get('email');
         $userSession = (new UserManager())->getUserInfo($sessionEmail);
+
         if (!empty($errors)) {
             $data = [
                 'errors' => $errors,

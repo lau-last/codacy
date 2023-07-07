@@ -14,6 +14,7 @@ use Core\Session\Session;
 
 final class CommentManager extends CommentEntity
 {
+
     /**
      * @var string
      */
@@ -28,6 +29,7 @@ final class CommentManager extends CommentEntity
         return $this->author;
     }
 
+
     /**
      * @param string $author
      * @return $this
@@ -37,6 +39,7 @@ final class CommentManager extends CommentEntity
         $this->author = $author;
         return $this;
     }
+
 
     /**
      * @param $id
@@ -50,18 +53,21 @@ final class CommentManager extends CommentEntity
             ->where('article_id = :article_id', 'c.validation = "valid"')
             ->orderBy('c.date DESC'), ['article_id' => $id[0]]);
         $comments = [];
+
         foreach ($dataComment as $result) {
             $comments[] = new CommentManager($result);
         }
+
         return $comments;
     }
+
 
     /**
      * @param array $input
      * @param int $articleId
      * @return void
      */
-    public function createComment(array $input, int $articleId)
+    public function createComment(array $input, int $articleId): void
     {
         $userId = SessionBlog::get('id');
         (new Manager())->queryExecute(
@@ -74,6 +80,7 @@ final class CommentManager extends CommentEntity
         );
     }
 
+
     /**
      * @return array
      */
@@ -85,17 +92,20 @@ final class CommentManager extends CommentEntity
                 ->where('c.validation = "invalid"')
         );
         $comment = [];
+
         foreach ($data as $res) {
             $comment[] = new CommentManager($res);
         }
+
         return $comment;
     }
+
 
     /**
      * @param $id
      * @return void
      */
-    public function updateCommentSetValid($id)
+    public function updateCommentSetValid($id): void
     {
         (new Manager())->queryExecute(
             (new Update('comment AS c'))
@@ -105,11 +115,12 @@ final class CommentManager extends CommentEntity
         );
     }
 
+
     /**
      * @param $id
      * @return void
      */
-    public function deleteComment($id)
+    public function deleteComment($id): void
     {
         (new Manager())->queryExecute(
             (new Delete('comment'))
@@ -117,5 +128,6 @@ final class CommentManager extends CommentEntity
             ['id' => $id[0]]
         );
     }
+
 
 }

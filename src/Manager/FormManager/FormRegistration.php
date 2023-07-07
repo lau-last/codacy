@@ -4,6 +4,7 @@ namespace App\Manager\FormManager;
 
 final class FormRegistration
 {
+
     /**
      * @param array $input
      * @return bool
@@ -12,6 +13,7 @@ final class FormRegistration
     {
         return (isset($input['name']) && strlen($input['name']) > 2);
     }
+
 
     /**
      * @param array $input
@@ -22,6 +24,7 @@ final class FormRegistration
         return (isset($input['password1']) && isset($input['password2']) && $input['password1'] === $input['password2']);
     }
 
+
     /**
      * @param $input
      * @return bool
@@ -31,6 +34,7 @@ final class FormRegistration
         $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
         return preg_match($regex, $input['password1']);
     }
+
 
     /**
      * @param array $input
@@ -49,6 +53,7 @@ final class FormRegistration
     public function isValid(array $input): array
     {
         $errors = [];
+
         if ($this->checkName($input) === false) {
             $errors['name'] = 'The name must contain at least 3 characters';
         }
@@ -67,4 +72,6 @@ final class FormRegistration
 
         return $errors;
     }
+
+
 }

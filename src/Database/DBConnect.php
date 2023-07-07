@@ -6,10 +6,12 @@ use PDO;
 
 final class DBConnect
 {
+
     /**
      * @var PDO|null
      */
     private static ?PDO $pdo = null;
+
 
     /**
      * @return PDO
@@ -19,6 +21,9 @@ final class DBConnect
         if (self::$pdo === null) {
             self::$pdo = new PDO(DATABASE_DNS, DATABASE_USER, DATABASE_PASSWORD);
         }
+
         return self::$pdo;
     }
+
+
 }

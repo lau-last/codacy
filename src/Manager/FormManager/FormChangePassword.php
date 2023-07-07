@@ -14,6 +14,7 @@ final class FormChangePassword
         return (isset($input['password1']) && isset($input['password2']) && $input['password1'] === $input['password2']);
     }
 
+
     /**
      * @param $input
      * @return bool
@@ -24,6 +25,7 @@ final class FormChangePassword
         return preg_match($regex, $input['password1']);
     }
 
+
     /**
      * @param array $input
      * @return array
@@ -31,6 +33,7 @@ final class FormChangePassword
     public function isValid(array $input): array
     {
         $errors = [];
+
         if ($this->checkPassword($input) === false) {
             $errors['password'] = 'Passwords do not match';
         }
@@ -45,5 +48,6 @@ final class FormChangePassword
 
         return $errors;
     }
+
 
 }

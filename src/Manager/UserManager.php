@@ -13,12 +13,13 @@ use Exception;
 
 final class UserManager extends UserEntity
 {
+
     /**
      * @param array $input
      * @return void
      * @throws Exception
      */
-    public function doPreRegistration(array $input)
+    public function doPreRegistration(array $input): void
     {
         (new Manager())->queryExecute(
             new Insert('user', ['name', 'password', 'email', 'token', 'expiration_date']),
@@ -32,6 +33,7 @@ final class UserManager extends UserEntity
         );
     }
 
+
     /**
      * @return bool
      */
@@ -40,8 +42,10 @@ final class UserManager extends UserEntity
         if (!empty(SessionBlog::get('name'))) {
             return true;
         }
+
         return false;
     }
+
 
     /**
      * @return bool
@@ -51,8 +55,10 @@ final class UserManager extends UserEntity
         if (self::userIsConnected() && SessionBlog::get('role') == 'admin') {
             return true;
         }
+
         return false;
     }
+
 
     /**
      * @param $info
@@ -63,11 +69,14 @@ final class UserManager extends UserEntity
         $dataUser = (new Manager())->fetch((
         new Select('user', ['*']))
             ->where('email = :email'), ['email' => $info]);
+
         if (empty($dataUser)) {
             return null;
         }
+
         return new UserManager($dataUser);
     }
+
 
     /**
      * @return array
@@ -76,17 +85,20 @@ final class UserManager extends UserEntity
     {
         $data = (new Manager())->fetchAll(new Select('user', ['*']));
         $users = [];
+
         foreach ($data as $res) {
             $users[] = new UserManager($res);
         }
+
         return $users;
     }
+
 
     /**
      * @param $id
      * @return void
      */
-    public function setUserAdmin($id)
+    public function setUserAdmin($id): void
     {
         (new Manager())->queryExecute(
             (new Update('user'))
@@ -96,11 +108,12 @@ final class UserManager extends UserEntity
         );
     }
 
+
     /**
      * @param $id
      * @return void
      */
-    public function setUserUser($id)
+    public function setUserUser($id): void
     {
         (new Manager())->queryExecute(
             (new Update('user'))
@@ -110,11 +123,12 @@ final class UserManager extends UserEntity
         );
     }
 
+
     /**
      * @param $id
      * @return void
      */
-    public function deleteUser($id)
+    public function deleteUser($id): void
     {
         (new Manager())->queryExecute(
             (new Delete('user'))
@@ -123,11 +137,12 @@ final class UserManager extends UserEntity
         );
     }
 
+
     /**
      * @param $token
      * @return void
      */
-    public function setUserValid($token)
+    public function setUserValid($token): void
     {
         (new Manager())->queryExecute(
             (new Update('user'))
@@ -136,6 +151,7 @@ final class UserManager extends UserEntity
             ['token' => $token[0]]
         );
     }
+
 
     /**
      * @param $token
@@ -154,11 +170,12 @@ final class UserManager extends UserEntity
         return new UserManager($user);
     }
 
+
     /**
      * @param $token
      * @return void
      */
-    public function deleteUserByToken($token)
+    public function deleteUserByToken($token): void
     {
         (new Manager())->queryExecute(
             (new Delete('user'))
@@ -167,12 +184,13 @@ final class UserManager extends UserEntity
         );
     }
 
+
     /**
      * @param array $input
      * @param $id
      * @return void
      */
-    public function updateNewPassword(array $input, $id)
+    public function updateNewPassword(array $input, $id): void
     {
         (new Manager())->queryExecute(
             (new Update('user'))

@@ -78,6 +78,7 @@ final class FormController extends Controller
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
+     * @throws \Exception
      */
     public function doRegistration(): void
     {

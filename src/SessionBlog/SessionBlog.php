@@ -7,11 +7,12 @@ use Core\Session\Session;
 
 final class SessionBlog extends Session
 {
+
     /**
      * @param UserManager|null $userInfo
      * @return void
      */
-    public static function init(?UserManager $userInfo = null)
+    public static function init(?UserManager $userInfo = null): void
     {
         if ((!empty($userInfo))) {
             self::set('id', $userInfo->getId());
@@ -19,5 +20,8 @@ final class SessionBlog extends Session
             self::set('email', $userInfo->getEmail());
             self::set('role', $userInfo->getRole());
         }
+
     }
+
+
 }
